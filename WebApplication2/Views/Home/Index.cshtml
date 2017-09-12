@@ -1,0 +1,80 @@
+﻿@Scripts.Render("~/bundles/jsBundle")
+@Styles.Render("~/Content/css")
+@{
+    Layout = null;
+}
+<!doctype html>
+<meta charset="utf-8" />
+
+<script type="text/javascript">
+    $(function () {
+        Invest();
+    });
+</script>
+
+<title>Future Money Calculator</title>
+<h1 class="h1">Investment Calculator</h1>
+
+<div id="errorMessage" class="bg-danger input-lg text-center hidden"></div>
+   
+<div class="container">
+    <div id="startMoneyDiv" class="row">
+        <span class="text-uppercase text-primary col-xs-9">Start Money:</span>
+        <input id="initialMoneyInput" type="number" step=".01" min="0" placeholder="1000.00" class="input-lg" />
+    </div>
+
+    <div id="interestRateDiv" class="row">
+        <span class="text-uppercase text-primary col-xs-9">Interest Rate:</span>
+        <input id="interestRateInput" type="number" step=".001" max="2" min="0" placeholder=".05" class="input-lg" />
+    </div>
+
+    <div id="timeDiv" class="row">
+        <span class="text-uppercase text-primary col-xs-9">Years Invested:</span>
+        <input id="timeInput" type="number" step="1" min="0" placeholder="5" class="input-lg" />
+    </div>
+
+    <div id="compoundDiv" class="row">
+        <span class="text-uppercase text-primary col-xs-9">Compound Frequency:</span>
+        <select id="compoundedSelect" class="input-lg">
+            <option value="365.25">Daily</option>
+            <option value="12">Monthly</option>
+            <option value="4">Quarterly</option>
+            <option selected="selected" value="1">Yearly</option>
+        </select>
+    </div>
+
+    <button id="resultsButton" class="btn btn-primary btn-success btn-lg">Get Results</button>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Results</h4>
+            </div>
+            <div class="modal-body">
+                <p id="startModalText"></p>
+                <p id="interestRateModalText"></p>
+                <p id="timeInputModalText"></p>
+                <p id="compoundedModalText"></p>
+                <p id="resultModalText"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@*<div id="modalDiv" class="modal hidden">
+    <div class="modal-content">
+        <h1>please show</h1>
+        <p>Some TExt</p>
+        <span class="close">X</span>
+    </div>
+</div>*@
